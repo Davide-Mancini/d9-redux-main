@@ -2,8 +2,10 @@ import { Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { BiHeart } from "react-icons/bi";
 import { useDispatch } from "react-redux";
+import { useState } from "react";
 
 const Job = ({ data }) => {
+  const [red, setRed] = useState("");
   const dispatch = useDispatch();
   return (
     <Row
@@ -12,8 +14,10 @@ const Job = ({ data }) => {
     >
       <Col xs={3}>
         <BiHeart
+          style={{ color: red }}
           className="me-2"
           onClick={() => {
+            setRed("red");
             dispatch({
               type: "ADD_TO_FAVOURITE",
               payload: data,

@@ -16,10 +16,10 @@ const Favourite = () => {
       <Container>
         <Row>
           <Col sm={12}>
-            <ul>
+            <ul style={{ listStyle: "none" }}>
               {favourites.map((favourite, i) => {
                 return (
-                  <li key={i}>
+                  <li key={i} className="d-flex my-3 align-items-center">
                     <Button
                       variant="danger"
                       onClick={() => {
@@ -31,7 +31,7 @@ const Favourite = () => {
                     >
                       <FaTrash />
                     </Button>
-                    <h5>{favourite.title}</h5>
+                    <h5 className="mx-2">{favourite.title}</h5>
                     <h6>{favourite.company_name}</h6>
                   </li>
                 );
