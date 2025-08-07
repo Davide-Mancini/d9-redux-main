@@ -1,11 +1,12 @@
 import { Button, Col, Container, Row } from "react-bootstrap";
 import { FaTrash } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
+import { REMOVE_FROM_FAVOURITE } from "../redux/actions";
 
 const Favourite = () => {
   const favourites = useSelector((state) => {
     console.log(state);
-    return state.favourites.content;
+    return state.content.content;
   });
   const dispatch = useDispatch();
   console.log(favourites);
@@ -23,7 +24,7 @@ const Favourite = () => {
                       variant="danger"
                       onClick={() => {
                         dispatch({
-                          type: "REMOVE_FROM_FAVOURITE",
+                          type: REMOVE_FROM_FAVOURITE,
                           payload: favourite._id,
                         });
                       }}
